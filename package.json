@@ -7,14 +7,15 @@
   "dependencies": {
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start-react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "elec_start": "npm run build && electron_build_copy_files.bat && electron ./build/main.js"
+    "start": "npm run build && electron_build_copy_files.bat && electron ./build/main.js"
   },
   "devDependencies": {
     "electron": "^2.0.9"

@@ -3,12 +3,18 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
 const path = require('path');
+const url = require('url')
 
 let mainWindow;
 
 function createWindow() {
     mainWindow = new BrowserWindow({width: 900, height: 680, show: false});
-    mainWindow.loadURL(`file://${path.join(__dirname, './index.html')}`);
+    mainWindow.loadURL(url.format({
+        pathname: path.join(__dirname, './index.html'),
+        protocol: 'file:',
+        slashes: true,
+        hash: './other'
+    }));
     mainWindow.on('closed', () => mainWindow = null);
     mainWindow.on('ready-to-show', () => mainWindow.show())
 }
