@@ -5,18 +5,22 @@ import './App.css';
 const path = require('path')
 const url = require('url')
 
-const BrowserWindow = window.require('electron').remote.BrowserWindow
+const remote = window.require('electron').remote;
+const BrowserWindow = remote.BrowserWindow
 
 function createWindows() {
-    let window = new BrowserWindow({width: 300, height: 300, show: false})
+    let window = new
+    BrowserWindow({width: 300, height: 300, parent: remote.getCurrentWindow(), show: false})
     window.loadURL(url.format({
-        pathname: path.join(__dirname, './index.html'),
+        pathname: path.join(__dirname, '../build/index.html'),
         protocol: 'file:',
         slashes: true,
         hash: '/other'
     }))
 
-    window.once('ready-to-show', () => window.show())
+    window.once('ready-to-show', () => {
+        window.show()
+    })
     window.on('closed', () => window = null)
 }
 
@@ -35,10 +39,6 @@ class App extends React.Component {
             </div>
         );
     }
-}
-
-class newElectronWindow {
-
 }
 
 export default App;
