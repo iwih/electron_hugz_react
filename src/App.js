@@ -12,9 +12,9 @@ const BrowserWindow = remote.BrowserWindow
 function createWindows() {
     let currentWindow = remote.getCurrentWindow();
 
-    let window = new BrowserWindow({width: 300, height: 300, parent: currentWindow, show: false})
+    let window = new BrowserWindow({width: 400, height: 600, parent: currentWindow, show: false})
 
-    let newWindowUrl = 'file://' + path.join(app.getAppPath().split('\\').join('/'), '/build/index.html#/other');
+    let newWindowUrl = 'file://' + path.join(app.getAppPath().split('\\').join('/'), '/build/index.html#/grid');
     window.loadURL(newWindowUrl)
 
     window.once('ready-to-show', () => {

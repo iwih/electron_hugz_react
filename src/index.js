@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import {Switch, HashRouter, Route} from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker';
-import Other from "./Other";
+import Gridder from "./Gridder";
 
 class MyRouter extends React.Component {
     render() {
@@ -13,7 +13,7 @@ class MyRouter extends React.Component {
                 <HashRouter>
                     <Switch>
                         <Route exact path={'/'} component={App}/>
-                        <Route exact path={'/other'} component={Other}/>
+                        <Route exact path={'/grid'} component={Gridder}/>
                         <Route component={class ErrorRoute extends React.Component {
                             render() {
                                 return (

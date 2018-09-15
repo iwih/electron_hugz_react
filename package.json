@@ -8,6 +8,7 @@
   "description": "App for Training!",
   "dependencies": {
     "react": "^16.5.1",
+    "react-data-grid": "^4.0.8",
     "react-dom": "^16.5.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5"
@@ -17,7 +18,7 @@
     "build-react": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "start": "npm run build && electron .",
+    "start": "npm run build-react && npx electron .",
     "build": "npm run build-react && electron-builder",
     "shoka": ".\\dist\\win-unpacked\\electron_hugz_react.exe",
     "electronize": "npm run build && npm run shoka"
