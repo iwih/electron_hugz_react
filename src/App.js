@@ -9,14 +9,14 @@ const remote = window.require('electron').remote;
 const BrowserWindow = remote.BrowserWindow
 
 function createWindows() {
-    let window = new
-    BrowserWindow({width: 300, height: 300, parent: remote.getCurrentWindow(), show: false})
-    window.loadURL(url.format({
-        pathname: path.join(__dirname, '../build/index.html'),
-        protocol: 'file:',
-        slashes: true,
-        hash: '/other'
-    }))
+    let currentWindow = remote.getCurrentWindow();
+
+    let window = new BrowserWindow({width: 300, height: 300, parent: currentWindow, show: false})
+
+    let newWindowUrl = 'file://' + path.join(__dirname, '../../index.html');
+    window.loadURL(newWindowUrl)
+
+    alert(currentWindow.webContents.getURL() + '\n' + newWindowUrl)
 
     window.once('ready-to-show', () => {
         window.show()

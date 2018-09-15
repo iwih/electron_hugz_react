@@ -2,8 +2,10 @@
   "name": "electron_hugz_react",
   "version": "0.1.0",
   "private": true,
-  "main": "src/main.js",
+  "main": "public/electron.js",
   "homepage": "./",
+  "author": "Osama Alwash",
+  "description": "App for Training!",
   "dependencies": {
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
@@ -12,10 +14,12 @@
   },
   "scripts": {
     "start-react": "react-scripts start",
-    "build": "react-scripts build",
+    "build-react": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "start": "npm run build && electron ."
+    "start": "npm run build && electron .",
+    "build": "electron-builder",
+    "build-electron": "npm run build-react && electron-builder"
   },
   "devDependencies": {
     "electron": "^2.0.9",
