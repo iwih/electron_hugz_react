@@ -9,14 +9,13 @@ let mainWindow;
 
 function createWindow() {
     mainWindow = new BrowserWindow({width: 900, height: 680, show: false});
-    const s = url.format({
+    const startUrl = url.format({
         pathname: path.join(__dirname, '../build/index.html'),
         protocol: 'file:',
         slashes: true,
         hash: '/'
     });
-    mainWindow.loadURL(s)
-    console.log(s)
+    mainWindow.loadURL(startUrl)
     mainWindow.on('closed', () => mainWindow = null);
     mainWindow.on('ready-to-show', () => mainWindow.show())
 }

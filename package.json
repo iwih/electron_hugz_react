@@ -18,11 +18,18 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "start": "npm run build && electron .",
-    "build": "electron-builder",
-    "build-electron": "npm run build-react && electron-builder"
+    "build": "npm run build-react && electron-builder",
+    "shoka": ".\\dist\\win-unpacked\\electron_hugz_react.exe",
+    "electronize": "npm run build && npm run shoka"
   },
   "devDependencies": {
     "electron": "^2.0.9",
     "electron-builder": "^20.28.4"
+  },
+  "build": {
+    "appId": "com.osama.iraqicashier",
+    "win": {
+      "target": "dir"
+    }
   }
 }
