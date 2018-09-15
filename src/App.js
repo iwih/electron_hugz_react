@@ -6,6 +6,7 @@ const path = require('path')
 const url = require('url')
 
 const remote = window.require('electron').remote;
+const app = remote.app;
 const BrowserWindow = remote.BrowserWindow
 
 function createWindows() {
@@ -13,10 +14,8 @@ function createWindows() {
 
     let window = new BrowserWindow({width: 300, height: 300, parent: currentWindow, show: false})
 
-    let newWindowUrl = 'file://' + path.join(__dirname, '../../index.html');
+    let newWindowUrl = 'file://' + path.join(app.getAppPath().split('\\').join('/'), '/build/index.html#/other');
     window.loadURL(newWindowUrl)
-
-    alert(currentWindow.webContents.getURL() + '\n' + newWindowUrl)
 
     window.once('ready-to-show', () => {
         window.show()
